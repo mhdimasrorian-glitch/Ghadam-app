@@ -1,0 +1,12 @@
+services:
+  db:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ghadam
+      POSTGRES_USER: ghadam
+      POSTGRES_PASSWORD: change_me
+    ports: ["5432:5432"]
+    volumes: [ghadam_pg:/var/lib/postgresql/data]
+volumes:
+  ghadam_pg:

@@ -1,0 +1,2 @@
+برای اینکه فایل wrapper جعلی داخل پروژه قرار نگیرد، Gradle wrapper binary ساخته نشده است.
+پروژه را یک‌بار در Android Studio باز کن و Gradle Sync را انجام بده؛ سپس build_release.bat / build_release.sh را اجرا کن.
