@@ -1,9 +1,8 @@
 package com.ghadam.app
 
-import androidx.activity.ComponentActivity
 import android.os.Bundle
 import android.widget.*
-import androidx.activity.result.contract.ActivityResultContracts
+import androidx.activity.ComponentActivity
 import androidx.health.connect.client.HealthConnectClient
 import androidx.health.connect.client.permission.HealthPermission
 import androidx.health.connect.client.records.StepsRecord
@@ -60,8 +59,8 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun scheduleSync() {
-        val request = PeriodicWorkRequest.Builder(StepSyncWorker::class.java, 15, TimeUnit.MINUTES).build(
-            WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+        val request = PeriodicWorkRequest.Builder(StepSyncWorker::class.java, 15, TimeUnit.MINUTES).build()
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
             "ghadam-step-sync", ExistingPeriodicWorkPolicy.KEEP, request
         )
     }
