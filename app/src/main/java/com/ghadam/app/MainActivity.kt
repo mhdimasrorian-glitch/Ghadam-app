@@ -1,6 +1,6 @@
 package com.ghadam.app
 
-import android.app.Activity
+import androidx.activity.ComponentActivity
 import android.os.Bundle
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
@@ -15,7 +15,7 @@ import java.time.*
 import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.launch
 
-class MainActivity : Activity() {
+class MainActivity : ComponentActivity() {
     private lateinit var health: HealthConnectClient
     private val permissionLauncher = registerForActivityResult(
         androidx.health.connect.client.PermissionController.createRequestPermissionResultContract()
