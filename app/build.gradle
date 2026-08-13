@@ -19,13 +19,14 @@ compileOptions {
     kotlinOptions {
         jvmTarget = "17"
     }
-    buildTypes {
+   buildTypes {
         release {
             minifyEnabled=false
             shrinkResources=false
             debuggable=false
+            signingConfig=signingConfigs.debug
         }
-    }
+    } 
 }
 
 dependencies {
