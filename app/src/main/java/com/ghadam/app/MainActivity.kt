@@ -60,4 +60,16 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun scheduleSync() {
-        val request = PeriodicWorkRequest.Builder(StepSyncWorker::class.java, 15, TimeUnit.MINUTES).build()
+        val request = PeriodicWorkRequest.Builder(StepSyncWorker::class.java, 15, TimeUnit.MINUTES).build(
+            WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "ghadam-step-sync", ExistingPeriodicWorkPolicy.KEEP, request
+        )
+    }
+}
+
+class StepSyncWorker(appContext: android.content.Context, params: WorkerParameters) :
+    CoroutineWorker(appContext, params) {
+    override suspend fun doWork(): Result {
+        return Result.success()
+    }
+}
