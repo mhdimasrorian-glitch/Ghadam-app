@@ -60,4 +60,4 @@ class MainActivity : ComponentActivity() {
     }
 
     private fun scheduleSync() {
-        val request = PeriodicWorkRequestBuilder
+        val request = PeriodicWorkRequest.Builder(StepSyncWorker::class.java, 15, TimeUnit.MINUTES).build()
